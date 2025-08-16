@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - Territoriya Dyma</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(160, 32, 240, 0.2);
+            border: 1px solid #333;
+            max-width: 400px;
+        }
+        
+        h1 {
+            background: linear-gradient(135deg, #a020f0, #20f0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .qr-code {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            display: inline-block;
+        }
+        
+        .url-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+        
+        .generate-btn {
+            background: linear-gradient(135deg, #a020f0, #20f0a0);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .instructions {
+            font-size: 14px;
+            color: #b0b0b0;
+            line-height: 1.5;
+            margin-top: 1rem;
+        }
+        
+        .download-btn {
+            background: #20f0a0;
+            color: #0a0a0a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Код для Territoriya Dyma</h1>
+        
+        <input type="text" 
+               id="urlInput" 
+               class="url-input" 
+               value="http://localhost:8000" 
+               placeholder="Введите URL вашего сайта">
+        
+        <br>
+        <button onclick="generateQR()" class="generate-btn">Создать QR-код</button>
+        
+        <div id="qrcode" class="qr-code" style="display: none;"></div>
+        
+        <button id="downloadBtn" onclick="downloadQR()" class="download-btn" style="display: none;">
+            Скачать QR-код
+        </button>
+        
+        <div class="instructions">
+            <strong>Инструкция:</strong><br>
+            1. Замените URL на адрес вашего сайта<br>
+            2. Нажмите "Создать QR-код"<br>
+            3. Скачайте и разместите QR-код в заведении<br>
+            4. Гости смогут отсканировать код и открыть меню
+        </div>
+    </div>
+
+    <script>
+        let currentQRCanvas = null;
+
+        function generateQR() {
+            const url = document.getElementById('urlInput').value;
+            const qrContainer = document.getElementById('qrcode');
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            if (!url) {
+                alert('Пожалуйста, введите URL');
+                return;
+            }
+            
+            // Clear previous QR code
+            qrContainer.innerHTML = '';
+            
+            // Generate QR code
+            QRCode.toCanvas(url, {
+                width: 200,
+                height: 200,
+                color: {
+                    dark: '#0a0a0a',
+                    light: '#ffffff'
+                },
+                margin: 2,
+                errorCorrectionLevel: 'M'
+            }, function (error, canvas) {
+                if (error) {
+                    console.error(error);
+                    alert('Ошибка при создании QR-кода');
+                    return;
+                }
+                
+                qrContainer.appendChild(canvas);
+                qrContainer.style.display = 'block';
+                downloadBtn.style.display = 'inline-block';
+                currentQRCanvas = canvas;
+            });
+        }
+        
+        function downloadQR() {
+            if (!currentQRCanvas) {
+                alert('Сначала создайте QR-код');
+                return;
+            }
+            
+            // Create download link
+            const link = document.createElement('a');
+            link.download = 'territoriya-dyma-qr.png';
+            link.href = currentQRCanvas.toDataURL();
+            link.click();
+        }
+        
+        // Generate QR code on page load
+        window.onload = function() {
+            generateQR();
+        };
+    </script>
+</body>
+</html>

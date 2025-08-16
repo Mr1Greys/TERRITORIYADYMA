@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Territoriya Dyma - Кальянная</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Territoriya Dyma">
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles-new.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with Burger Menu -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">Territoriya Dyma</div>
+            <button id="burger-btn" class="burger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Welcome Screen -->
+    <main class="welcome-main">
+        <div class="welcome-container">
+            <div class="brand-content">
+                <div class="logo-section">
+                    <img src="assets/icons/Group 1.png" alt="Territoriya Dyma Logo" class="brand-logo">
+                    <h1 class="restaurant-label">RESTAURANT & LOUNGE</h1>
+                </div>
+                <h2 class="brand-title">TERRITORIYA DYMA</h2>
+                <div class="club-label">C L U B</div>
+                
+                <div class="info-section">
+                    <div class="working-hours">
+                        <p><strong>Время работы:</strong></p>
+                        <p>пн-пт 12:00 - 02:00</p>
+                        <p>сб-вс 12:00 - 03:00</p>
+                    </div>
+                    <div class="address-info">
+                        <p><strong>Адрес:</strong> ул. Лебеденко, 12, рабочий посёлок Тучково</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-buttons">
+                <a href="https://www.instagram.com/territoriya.d.tchk?igsh=NDE1Z2tubjg1NTIy&utm_source=qr" target="_blank" class="social-btn instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="tel:+79689770775" class="social-btn phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sidebar Menu -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <h3>TERRITORIYA DYMA</h3>
+                <div class="sidebar-subtitle">C L U B</div>
+            </div>
+            <button id="close-sidebar" class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-content">
+            <nav class="menu-nav">
+                <a href="#" class="menu-item" data-category="hookahs">Кальяны</a>
+                <a href="#" class="menu-item" data-category="tea">Чай</a>
+                <a href="#" class="menu-item" data-category="author-tea">Авторский чай</a>
+                <a href="#" class="menu-item" data-category="lemonades">Лимонады</a>
+                <a href="#" class="menu-item" data-category="drinks">Напитки</a>
+                <a href="#" class="menu-item" data-category="snacks">Закуски</a>
+                <a href="#" class="menu-item" data-category="pizza">Пицца</a>
+                <a href="#" class="menu-item" data-category="beer">Пиво</a>
+                <a href="#" class="menu-item" data-category="cork-fee">Пробковый сбор</a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="contact-links">
+                    <a href="tel:+79689770775" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        <span>+7 968-977-07-75</span>
+                    </a>
+                    <a href="https://yandex.ru/maps/org/territoriya_dyma/205571014194?si=h4knhr3ggfcxh3j72ht55zevrc" target="_blank" class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Яндекс карты</span>
+                    </a>
+                </div>
+                
+                <div class="sidebar-social">
+                    <a href="https://instagram.com/territoriya_dyma" target="_blank" class="sidebar-social-btn">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="tel:+79689770775" class="sidebar-social-btn">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+                
+                <div class="language-switch">
+                    <span class="lang active">RU</span>
+                    <span class="lang-divider">|</span>
+                    <span class="lang">EN</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Categories Screen (hidden by default) -->
+    <div id="categories-screen" class="screen hidden">
+        <div class="screen-header">
+            <button id="back-to-home" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h2>Меню</h2>
+        </div>
+            <!-- Category cards will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Items Screen -->
+    <div id="items-screen" class="screen hidden">
+        <div class="screen-header">
+            <button id="back-to-categories" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h2 id="items-title">Меню</h2>
+        </div>
+        <div id="items-container" class="items-container">
+            <!-- Items will be loaded here dynamically -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app-new.js"></script>
+    <script src="js/sw-register.js"></script>
+</body>
+</html>

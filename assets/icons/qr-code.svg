@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a020f0;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#20f0a0;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="300" fill="white" rx="20"/>
+  <rect x="10" y="10" width="280" height="280" fill="url(#bgGrad)" rx="15"/>
+  
+  <!-- QR Code Pattern (simplified representation) -->
+  <!-- Top-left finder pattern -->
+  <rect x="30" y="30" width="70" height="70" fill="#0a0a0a" rx="5"/>
+  <rect x="40" y="40" width="50" height="50" fill="white" rx="3"/>
+  <rect x="50" y="50" width="30" height="30" fill="#0a0a0a" rx="2"/>
+  
+  <!-- Top-right finder pattern -->
+  <rect x="200" y="30" width="70" height="70" fill="#0a0a0a" rx="5"/>
+  <rect x="210" y="40" width="50" height="50" fill="white" rx="3"/>
+  <rect x="220" y="50" width="30" height="30" fill="#0a0a0a" rx="2"/>
+  
+  <!-- Bottom-left finder pattern -->
+  <rect x="30" y="200" width="70" height="70" fill="#0a0a0a" rx="5"/>
+  <rect x="40" y="210" width="50" height="50" fill="white" rx="3"/>
+  <rect x="50" y="220" width="30" height="30" fill="#0a0a0a" rx="2"/>
+  
+  <!-- Data modules (simplified pattern) -->
+  <g fill="#0a0a0a">
+    <!-- Row 1 -->
+    <rect x="120" y="30" width="10" height="10" rx="1"/>
+    <rect x="140" y="30" width="10" height="10" rx="1"/>
+    <rect x="160" y="30" width="10" height="10" rx="1"/>
+    <rect x="180" y="30" width="10" height="10" rx="1"/>
+    
+    <!-- Row 2 -->
+    <rect x="110" y="50" width="10" height="10" rx="1"/>
+    <rect x="130" y="50" width="10" height="10" rx="1"/>
+    <rect x="150" y="50" width="10" height="10" rx="1"/>
+    <rect x="170" y="50" width="10" height="10" rx="1"/>
+    <rect x="190" y="50" width="10" height="10" rx="1"/>
+    
+    <!-- Row 3 -->
+    <rect x="120" y="70" width="10" height="10" rx="1"/>
+    <rect x="140" y="70" width="10" height="10" rx="1"/>
+    <rect x="160" y="70" width="10" height="10" rx="1"/>
+    <rect x="180" y="70" width="10" height="10" rx="1"/>
+    
+    <!-- Middle rows -->
+    <rect x="30" y="120" width="10" height="10" rx="1"/>
+    <rect x="50" y="120" width="10" height="10" rx="1"/>
+    <rect x="70" y="120" width="10" height="10" rx="1"/>
+    <rect x="90" y="120" width="10" height="10" rx="1"/>
+    <rect x="110" y="120" width="10" height="10" rx="1"/>
+    <rect x="130" y="120" width="10" height="10" rx="1"/>
+    <rect x="150" y="120" width="10" height="10" rx="1"/>
+    <rect x="170" y="120" width="10" height="10" rx="1"/>
+    <rect x="190" y="120" width="10" height="10" rx="1"/>
+    <rect x="210" y="120" width="10" height="10" rx="1"/>
+    <rect x="230" y="120" width="10" height="10" rx="1"/>
+    <rect x="250" y="120" width="10" height="10" rx="1"/>
+    <rect x="270" y="120" width="10" height="10" rx="1"/>
+    
+    <!-- More data pattern -->
+    <rect x="40" y="140" width="10" height="10" rx="1"/>
+    <rect x="60" y="140" width="10" height="10" rx="1"/>
+    <rect x="80" y="140" width="10" height="10" rx="1"/>
+    <rect x="100" y="140" width="10" height="10" rx="1"/>
+    <rect x="120" y="140" width="10" height="10" rx="1"/>
+    <rect x="140" y="140" width="10" height="10" rx="1"/>
+    <rect x="160" y="140" width="10" height="10" rx="1"/>
+    <rect x="180" y="140" width="10" height="10" rx="1"/>
+    <rect x="200" y="140" width="10" height="10" rx="1"/>
+    <rect x="220" y="140" width="10" height="10" rx="1"/>
+    <rect x="240" y="140" width="10" height="10" rx="1"/>
+    <rect x="260" y="140" width="10" height="10" rx="1"/>
+    
+    <!-- Bottom data -->
+    <rect x="110" y="180" width="10" height="10" rx="1"/>
+    <rect x="130" y="180" width="10" height="10" rx="1"/>
+    <rect x="150" y="180" width="10" height="10" rx="1"/>
+    <rect x="170" y="180" width="10" height="10" rx="1"/>
+    <rect x="190" y="180" width="10" height="10" rx="1"/>
+    <rect x="210" y="180" width="10" height="10" rx="1"/>
+    <rect x="230" y="180" width="10" height="10" rx="1"/>
+    <rect x="250" y="180" width="10" height="10" rx="1"/>
+    <rect x="270" y="180" width="10" height="10" rx="1"/>
+    
+    <!-- More bottom rows -->
+    <rect x="120" y="200" width="10" height="10" rx="1"/>
+    <rect x="140" y="200" width="10" height="10" rx="1"/>
+    <rect x="160" y="200" width="10" height="10" rx="1"/>
+    <rect x="180" y="200" width="10" height="10" rx="1"/>
+    
+    <rect x="110" y="220" width="10" height="10" rx="1"/>
+    <rect x="130" y="220" width="10" height="10" rx="1"/>
+    <rect x="150" y="220" width="10" height="10" rx="1"/>
+    <rect x="170" y="220" width="10" height="10" rx="1"/>
+    <rect x="190" y="220" width="10" height="10" rx="1"/>
+    
+    <rect x="120" y="240" width="10" height="10" rx="1"/>
+    <rect x="140" y="240" width="10" height="10" rx="1"/>
+    <rect x="160" y="240" width="10" height="10" rx="1"/>
+    <rect x="180" y="240" width="10" height="10" rx="1"/>
+    
+    <rect x="110" y="260" width="10" height="10" rx="1"/>
+    <rect x="130" y="260" width="10" height="10" rx="1"/>
+    <rect x="150" y="260" width="10" height="10" rx="1"/>
+    <rect x="170" y="260" width="10" height="10" rx="1"/>
+    <rect x="190" y="260" width="10" height="10" rx="1"/>
+  </g>
+  
+  <!-- Center logo area -->
+  <circle cx="150" cy="150" r="25" fill="white" stroke="#a020f0" stroke-width="2"/>
+  <text x="150" y="157" font-family="Arial, sans-serif" font-size="16" font-weight="bold" 
+        text-anchor="middle" fill="#a020f0">TD</text>
+</svg>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Готовый QR-код - Territoriya Dyma</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(160, 32, 240, 0.2);
+            border: 1px solid #333;
+            max-width: 500px;
+        }
+        
+        h1 {
+            background: linear-gradient(135deg, #a020f0, #20f0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .qr-display {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            display: inline-block;
+        }
+        
+        .ready-qr {
+            width: 250px;
+            height: 250px;
+            border: 2px solid #a020f0;
+            border-radius: 8px;
+        }
+        
+        .instructions {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid #333;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #333;
+            border-radius: 8px;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #a020f0, #20f0a0);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .download-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #a020f0, #20f0a0);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        
+        .print-btn {
+            background: #20f0a0;
+            color: #0a0a0a;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 10px;
+        }
+        
+        .url-info {
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 14px;
+            word-break: break-all;
+            border: 1px solid #555;
+        }
+        
+        .warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 QR-код для Territoriya Dyma</h1>
+        
+        <div class="qr-display">
+            <canvas id="qrCanvas" class="ready-qr"></canvas>
+        </div>
+        
+        <div class="url-info">
+            <strong>Текущий URL:</strong><br>
+            <span id="currentUrl">http://localhost:8000</span>
+        </div>
+        
+        <div class="warning">
+            ⚠️ <strong>Важно!</strong> Замените localhost на реальный адрес вашего сайта перед печатью QR-кода
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 Как использовать QR-код:</h3>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>Скачайте или распечатайте QR-код</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>Разместите QR-коды на столах в кальянной</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>Гости сканируют код камерой телефона</div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>Автоматически открывается меню PWA-приложения</div>
+            </div>
+        </div>
+        
+        <div class="download-section">
+            <h3>💾 Скачать QR-код:</h3>
+            <button onclick="downloadPNG()" class="download-btn">📱 Скачать PNG (высокое качество)</button>
+            <button onclick="downloadSVG()" class="download-btn">🖼️ Скачать SVG (векторный)</button>
+            <br>
+            <button onclick="window.print()" class="print-btn">🖨️ Печать QR-кода</button>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #1a1a1a; border-radius: 12px; border: 1px solid #333;">
+            <h3>🔧 Настройка для продакшена:</h3>
+            <p>1. Разместите приложение на хостинге (Netlify, Vercel, etc.)</p>
+            <p>2. Замените URL в поле ниже на реальный адрес</p>
+            <p>3. Создайте новый QR-код с правильным URL</p>
+            
+            <input type="text" id="urlInput" placeholder="https://ваш-сайт.com" 
+                   style="width: 100%; max-width: 300px; padding: 10px; margin: 10px 0; border: 1px solid #555; border-radius: 4px; background: #333; color: white;">
+            <br>
+            <button onclick="updateQR()" class="download-btn">🔄 Создать новый QR-код</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script>
+        let currentCanvas = null;
+        let currentUrl = 'http://localhost:8000';
+        
+        // Попытка определить реальный URL
+        if (window.location.hostname !== 'localhost') {
+            currentUrl = window.location.origin;
+        }
+        
+        function generateQR() {
+            const canvas = document.getElementById('qrCanvas');
+            
+            QRCode.toCanvas(canvas, currentUrl, {
+                width: 250,
+                height: 250,
+                color: {
+                    dark: '#0a0a0a',
+                    light: '#ffffff'
+                },
+                margin: 3,
+                errorCorrectionLevel: 'H' // Высокий уровень коррекции ошибок
+            }, function (error) {
+                if (error) {
+                    console.error(error);
+                    alert('Ошибка при создании QR-кода');
+                    return;
+                }
+                
+                currentCanvas = canvas;
+                console.log('QR-код создан для URL:', currentUrl);
+            });
+        }
+        
+        function updateQR() {
+            const input = document.getElementById('urlInput');
+            if (input.value.trim()) {
+                currentUrl = input.value.trim();
+                if (!currentUrl.startsWith('http')) {
+                    currentUrl = 'https://' + currentUrl;
+                }
+                
+                document.getElementById('currentUrl').textContent = currentUrl;
+                generateQR();
+            }
+        }
+        
+        function downloadPNG() {
+            if (!currentCanvas) {
+                alert('QR-код не создан');
+                return;
+            }
+            
+            // Создаем высококачественную версию
+            const highQualityCanvas = document.createElement('canvas');
+            const ctx = highQualityCanvas.getContext('2d');
+            
+            QRCode.toCanvas(highQualityCanvas, currentUrl, {
+                width: 500,
+                height: 500,
+                color: {
+                    dark: '#0a0a0a',
+                    light: '#ffffff'
+                },
+                margin: 4,
+                errorCorrectionLevel: 'H'
+            }, function (error) {
+                if (error) {
+                    console.error(error);
+                    return;
+                }
+                
+                const link = document.createElement('a');
+                link.download = 'territoriya-dyma-menu-qr.png';
+                link.href = highQualityCanvas.toDataURL('image/png', 1.0);
+                link.click();
+            });
+        }
+        
+        function downloadSVG() {
+            // Создаем SVG QR-код
+            QRCode.toString(currentUrl, {
+                type: 'svg',
+                width: 300,
+                height: 300,
+                color: {
+                    dark: '#0a0a0a',
+                    light: '#ffffff'
+                },
+                margin: 3,
+                errorCorrectionLevel: 'H'
+            }, function (error, svg) {
+                if (error) {
+                    console.error(error);
+                    return;
+                }
+                
+                const blob = new Blob([svg], { type: 'image/svg+xml' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.download = 'territoriya-dyma-menu-qr.svg';
+                link.href = url;
+                link.click();
+                URL.revokeObjectURL(url);
+            });
+        }
+        
+        // Инициализация
+        window.onload = function() {
+            document.getElementById('currentUrl').textContent = currentUrl;
+            document.getElementById('urlInput').value = currentUrl;
+            generateQR();
+        };
+    </script>
+</body>
+</html>
