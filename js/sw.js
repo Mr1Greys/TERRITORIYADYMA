@@ -132,8 +132,8 @@ self.addEventListener('push', (event) => {
     
     const options = {
         body: event.data ? event.data.text() : 'Новое уведомление от Territoriya Dyma',
-        icon: '/icons/icon-192x192.png',
-        badge: '/icons/icon-72x72.png',
+        icon: '/assets/icons/icon-192x192.png',
+        badge: '/assets/icons/icon-72x72.png',
         vibrate: [100, 50, 100],
         data: {
             dateOfArrival: Date.now(),
@@ -143,12 +143,12 @@ self.addEventListener('push', (event) => {
             {
                 action: 'explore',
                 title: 'Открыть меню',
-                icon: '/icons/icon-192x192.png'
+                icon: '/assets/icons/icon-192x192.png'
             },
             {
                 action: 'close',
                 title: 'Закрыть',
-                icon: '/icons/icon-192x192.png'
+                icon: '/assets/icons/icon-192x192.png'
             }
         ]
     };
