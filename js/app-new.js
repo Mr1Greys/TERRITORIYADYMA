@@ -6,42 +6,48 @@ const menuData = {
             name: 'На чаше',
             description: 'Классическая подача на глиняной чаше',
             price: 900,
-            icon: 'fas fa-smoking'
+            icon: 'fas fa-smoking',
+            image: 'assets/images/menu/hookahs/начаше (2).jpg'
         },
         {
             id: 2,
             name: 'Перезабивка',
             description: 'Замена табака в уже готовом кальяне',
             price: 700,
-            icon: 'fas fa-redo'
+            icon: 'fas fa-redo',
+            image: 'assets/images/menu/hookahs/перезабивка (1).jpg'
         },
         {
             id: 3,
             name: 'На грейпфруте',
             description: 'Авторская подача на грейпфруте',
             price: 1100,
-            icon: 'fas fa-apple-alt'
+            icon: 'fas fa-apple-alt',
+            image: 'assets/images/menu/hookahs/грейп.png'
         },
         {
             id: 4,
             name: 'На гранате',
             description: 'Эксклюзивная подача на гранате',
             price: 1250,
-            icon: 'fas fa-seedling'
+            icon: 'fas fa-seedling',
+            image: 'assets/images/menu/hookahs/гранат.jpg'
         },
         {
             id: 5,
             name: 'На ананасе',
             description: 'Премиальная подача на ананасе',
             price: 1800,
-            icon: 'fas fa-crown'
+            icon: 'fas fa-crown',
+            image: 'assets/images/menu/hookahs/ананас (1).jpg'
         },
         {
             id: 6,
             name: 'WTO',
             description: 'Специальная подача WTO',
             price: 1200,
-            icon: 'fas fa-fire'
+            icon: 'fas fa-fire',
+            image: 'assets/images/menu/hookahs/wto (1).jpg'
         }
     ],
     tea: [
