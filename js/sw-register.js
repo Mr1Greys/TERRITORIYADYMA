@@ -50,7 +50,7 @@ function showUpdateNotification() {
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
-        background: var(--accent-teal);
+        background: var(--accent-gold);
         color: white;
         padding: 1rem 2rem;
         border-radius: var(--border-radius);
@@ -66,7 +66,7 @@ function showUpdateNotification() {
         <span>Доступно обновление приложения</span>
         <button onclick="updateApp()" style="
             background: white;
-            color: var(--accent-teal);
+            color: var(--accent-gold);
             border: none;
             padding: 0.5rem 1rem;
             border-radius: 8px;
@@ -101,7 +101,7 @@ function showOfflineReadyNotification() {
         top: 20px;
         left: 50%;
         transform: translateX(-50%);
-        background: var(--accent-purple);
+        background: #8b5cf6;
         color: white;
         padding: 1rem 2rem;
         border-radius: var(--border-radius);
@@ -178,7 +178,7 @@ function showConnectionStatus(status) {
         bottom: 100px;
         left: 50%;
         transform: translateX(-50%);
-        background: ${isOnline ? 'var(--accent-teal)' : 'var(--text-muted)'};
+        background: ${isOnline ? '#10b981' : '#6b7280'};
         color: white;
         padding: 0.75rem 1.5rem;
         border-radius: var(--border-radius);

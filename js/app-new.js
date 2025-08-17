@@ -182,35 +182,40 @@ const menuData = {
             name: 'Добрый Кола / Спрайт / Фанта',
             description: 'Газированные напитки',
             price: 150,
-            icon: 'fas fa-glass-water'
+            icon: 'fas fa-glass-water',
+            image: 'assets/images/menu/drinks/добрый кола.webp'
         },
         {
             id: 42,
             name: 'Бонаква газ / без газа',
             description: 'Питьевая вода',
             price: 110,
-            icon: 'fas fa-tint'
+            icon: 'fas fa-tint',
+            image: 'assets/images/menu/drinks/бонаква.webp'
         },
         {
             id: 43,
             name: 'Энергетики в ассортименте',
             description: 'Различные энергетические напитки',
             price: 250,
-            icon: 'fas fa-bolt'
+            icon: 'fas fa-bolt',
+            image: 'assets/images/menu/drinks/редбул.jpg'
         },
         {
             id: 44,
             name: 'Напитки импорт',
             description: 'Импортные напитки',
             price: 250,
-            icon: 'fas fa-globe'
+            icon: 'fas fa-globe',
+            image: 'assets/images/menu/drinks/кола импорт.webp'
         },
         {
             id: 45,
             name: 'Сок в ассортименте',
             description: 'Различные соки',
             price: 170,
-            icon: 'fas fa-glass-whiskey'
+            icon: 'fas fa-glass-whiskey',
+            image: 'assets/images/menu/drinks/рич ассортимент (1).jpg'
         }
     ],
     snacks: [

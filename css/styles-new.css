@@ -577,6 +577,22 @@ body {
     border-radius: 0;
 }
 
+/* Специальные стили для карточек напитков - полное отображение бутылок */
+.drinks-category .item-image img.item-photo {
+    object-fit: contain !important;
+    object-position: center !important;
+    padding: 15px !important;
+    background: var(--card-bg) !important;
+}
+
+/* Дополнительный селектор для надежности */
+.items-container.drinks-category .item-card .item-image img.item-photo {
+    object-fit: contain !important;
+    object-position: center !important;
+    padding: 15px !important;
+    background: var(--card-bg) !important;
+}
+
 .item-content {
     padding: 1.5rem;
 }

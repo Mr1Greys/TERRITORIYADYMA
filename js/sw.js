@@ -2,8 +2,8 @@ const CACHE_NAME = 'territoriya-dyma-v1.0.0';
 const STATIC_CACHE_URLS = [
     '/',
     '/index.html',
-    '/styles.css',
-    '/app.js',
+    '/css/styles-new.css',
+    '/js/app-new.js',
     '/manifest.json',
     'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
